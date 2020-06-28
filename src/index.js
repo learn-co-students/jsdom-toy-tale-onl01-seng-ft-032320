@@ -36,10 +36,7 @@ function createSingleToy(toys) {
   p.dataset.likes = toys.likes
   p.innerText = `${p.dataset.likes} like(s)`
   
-  div.appendChild(h2)
-  div.appendChild(img)
-  div.appendChild(p)    
-  div.appendChild(button)
+  div.appendChild(h2, img, p, button)
   console.log("Added to DOM hopefully...")
 }
 
@@ -65,10 +62,7 @@ function createAllToys(toys) {
     p.dataset.likes = toy.likes
     p.innerText = `${p.dataset.likes} like(s)`
     
-    div.appendChild(h2)
-    div.appendChild(img)
-    div.appendChild(p)    
-    div.appendChild(button)
+    div.appendChild(h2, img, p, button)
   }
 }
 
