@@ -47,6 +47,12 @@
       "name": "Little Green Men",
       "image": "http://www.pngmart.com/files/3/Toy-Story-Alien-PNG-File.png",
       "likes": -2
+    },
+    {
+      "name": "scary furby",
+      "image": "https://static.tvtropes.org/pmwiki/pub/images/furby2_6953.jpg",
+      "likes": 0,
+      "id": 9
     }
   ]
 }
