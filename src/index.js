@@ -11,5 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       toyFormContainer.style.display = "none";
     }
+    
   });
 });
