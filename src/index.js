@@ -1,5 +1,18 @@
 let addToy = false;
 
+document.addEventListener("DOMContentLoaded", () => {
+  renderToys()
+  const addBtn = document.querySelector("#new-toy-btn");
+  const toyFormContainer = document.querySelector(".container");
+  addBtn.addEventListener("click", () => {
+    addToy = !addToy;
+    if (addToy) {
+      toyFormContainer.style.display = "block";
+    } else {
+      toyFormContainer.style.display = "none";
+    }
+  });
+
   function renderToys(){
   fetch("http://localhost:3000/toys")
   .then(function(response){
@@ -33,15 +46,13 @@ let addToy = false;
         button.innerText = 'Like <3'
         card.appendChild(button)
         button.addEventListener('click', (e) => {
-          console.log(e.target.dataset);
           likeToy(e)
         });
       }
   });
  } 
 
- let newToyName = document.getElementById("name").value;
- let newToyImg = document.getElementById("img").value;
+ 
  
   let configObj = {
     method: 'POST',
@@ -89,18 +100,7 @@ let addToy = false;
       }))
   }
 
-  document.addEventListener("DOMContentLoaded", () => {
-    renderToys()
-    const addBtn = document.querySelector("#new-toy-btn");
-    const toyFormContainer = document.querySelector(".container");
-    addBtn.addEventListener("click", () => {
-      addToy = !addToy;
-      if (addToy) {
-        toyFormContainer.style.display = "block";
-      } else {
-        toyFormContainer.style.display = "none";
-      }
-    });
+
   
 
 });
