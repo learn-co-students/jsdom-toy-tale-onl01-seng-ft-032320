@@ -75,26 +75,28 @@ function toyCards(toy) {
   img.src = toy.image;
   p.innerText = toy.likes + " Likes";
   button.innerText = "Like <3";
+
   button.addEventListener("click", () => {
-    let currentCard = document.querySelector(
-      "body > #toy-collection > div.card"
-    );
-    console.log(currentCard);
-    p.innerText = toy.likes++ + " Likes";
-    fetch("http://localhost:3000/toys/`${id}`", {
+    toy.likes = toy.likes + 1;
+    p.innerText = toy.likes + " Likes";
+    fetch(`http://localhost:3000/toys/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
       body: JSON.stringify({
-        likes: +1,
+        likes: toy.likes,
       }),
     });
   });
+
   toyCollection.appendChild(toyCard);
   toyCard.appendChild(toyName);
   toyCard.appendChild(img);
   toyCard.appendChild(p);
   toyCard.appendChild(button);
 }
+
+// when user clicks like, like num increments
+// send a patch fetch request to server to update toy.id --> likes
